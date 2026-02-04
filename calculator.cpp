@@ -1,21 +1,27 @@
 #include <stdio.h>
 #include <math.h>
 
-void inputEvaluate();
+typedef struct Cal {
+    double *numArr;
+    char *op;
+    int numCount;
+    int opCount;
+} Cal;
+
+Cal inputEvaluate(char *input);
 
 int main() {
-    inputEvaluate();
     return 0;
 }
 
-void inputEvaluate() {
-    char input[256];
-    scanf("%s", input);
+Cal inputEvaluate(char *input) {
     
     int index = 0;
     int startIntNumber = 0;
     int numberCount = 0;
     double *numArr = new double[100];
+    char *op = new char[50];
+    int opIndex = 0;
 
     while (input[index] != '\0') {
         if(input[index] != '+' && input[index] != '-' && input[index] != '*' && input[index] != '/' && input[index] != '%' && input[index] != '.') {
@@ -52,6 +58,10 @@ void inputEvaluate() {
             numArr[numberCount++] = number;
             startIntNumber = index + 1;
         }
+        if(input[index] == '+' || input[index] == '-' || input[index] == '*' || input[index] == '/' || input[index] == '%') {
+            op[opIndex] = input[index];
+            opIndex++;
+        }
         index++;
     }
 
@@ -84,9 +94,21 @@ void inputEvaluate() {
         numArr[numberCount] = lastNumber;
         numberCount++; 
     }
-
+    
+    printf("number\n");
     for(int i = 0 ; i < numberCount ; i++) {
         printf("Number %d : %.4f\n", i + 1, numArr[i]);
     }
-    delete[] numArr; 
+    printf("operator\n");
+    for(int i = 0 ; i < opIndex ; i++) {
+        printf("Operator %d : %c \n", i + 1 , op[i]);
+    }
+    Cal evaluated;
+    evaluated.numArr = numArr;
+    evaluated.op = op;
+    evaluated.numCount = numberCount;
+    evaluated.opCount = opIndex;
+    return evaluated;
+    // delete[] numArr; 
+    // delete[] op;
 }
