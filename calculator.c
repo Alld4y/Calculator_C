@@ -3,7 +3,7 @@
 void inputEvaluate();
 
 int main() {
-    getInput();
+    inputEvaluate();
     return 0;
 }
 
