@@ -14,6 +14,14 @@ int main() {
     return 0;
 }
 
+void orderProcess(Cal data) {
+    for(int i = 0 ; i < data.opCount ; i++) {
+        if(data.op[i] == '+' && data.op[i+1] != '*') {
+
+        }
+    }
+}
+
 Cal inputEvaluate(char *input) {
     
     int index = 0;
