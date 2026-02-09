@@ -10,12 +10,12 @@ typedef struct Cal {
 
 
 Cal   inputEvaluate(char *input);
-void  orderProcess(Cal data);
 double evaluate(Cal cal);
 
 int main(void) {
 
     printf("test");
+    
     return 0;
 }
 
@@ -23,10 +23,6 @@ Cal inputEvaluate(char *input) {
   
     Cal evaluated = {0};
     return evaluated;
-}
-
-void orderProcess(Cal data) {
-   
 }
 
 double evaluate(Cal cal) {
