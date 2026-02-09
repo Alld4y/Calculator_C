@@ -9,8 +9,8 @@ typedef struct Cal {
 } Cal;
 
 
-Cal   inputEvaluate(char *input);
-double evaluate(Cal cal);
+Cal inputEvaluate(char *input);
+double calculate(Cal cal);
 
 int main(void) {
 
@@ -25,7 +25,7 @@ Cal inputEvaluate(char *input) {
     return evaluated;
 }
 
-double evaluate(Cal cal) {
+double calculate(Cal cal) {
     
     return 0.0;
 }
